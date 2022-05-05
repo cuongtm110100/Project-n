@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trần Minh Cường </title>
-    <base href="localhost">
+    <base href="http://localhost/website/">
     <link rel="icon" type="image/png" href="./Public/images/logo/logoTMC.png">
     <link href="./Public/css/style.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="./Public/bootstrap/css/bootstrap.min.css" type="text/css">

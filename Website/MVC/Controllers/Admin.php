@@ -24,11 +24,11 @@ class Admin extends Controller{
                     "User"=>$ShowUser
                 ]);
             }else{
-                header("location:localhostLogin");
+                header("location:Login");
             }
         }
         else{
-            header("location:localhost");
+            header("location:Home");
         }
         
     }
@@ -255,7 +255,7 @@ class Admin extends Controller{
     public function Logout(){
         unset($_SESSION["id"]);
         session_destroy();
-        header("location:localhost");
+        header("location:Home");
     }
 
 

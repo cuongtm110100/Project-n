@@ -10,7 +10,7 @@
   <title>
     Profile User
   </title>
-  <base href="localhost">
+  <base href="http://localhost/website/">
   
   <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.min.css" type="text/css">
   <script src="https://cdn.tiny.cloud/1/x8ddsy8ubdlqj8p29903wwpe13uqygjc4s6ojs2vx8e5s9vy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

@@ -27,7 +27,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login Member</title>
-        <base href="localhost">
+        <base href="http://localhost/website/">
         <link href="./Public/css/styleRegister.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
