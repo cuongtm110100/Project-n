@@ -113,7 +113,7 @@ use PHPMailer\PHPMailer\Exception;
             echo '</script>';
 
             echo '<script language="Javascript">';
-            echo 'window.location="localhostContact"';
+            echo 'window.location="Contact"';
             echo '</script>';
         }
     } catch (Exception $e) {

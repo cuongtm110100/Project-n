@@ -94,6 +94,15 @@ class UserModel extends DB{
         return $kq;
     }
 
+    public function SelectEmail($id)
+    {
+        $qr = "SELECT email FROM user WHERE id='$id'";
+        $row = mysqli_query($this->con,$qr);
+        $rows = mysqli_fetch_array($row);
+        $email=$rows["email"];
+        return $email;
+    }
+
     public function CheckPermissionUser($un){
         $qr = "SELECT * FROM user where  username='$un' and permission=1 ";
         $row= mysqli_query($this->con, $qr);
@@ -164,6 +173,13 @@ class UserModel extends DB{
         if(mysqli_num_rows($row) == 1){
             $result = true;
         }
+        return $result;
+    }
+
+    public function BlockUser($un,$email){
+        $qr = "UPDATE user SET blocked=1  WHERE username='$un' AND email='$email'";
+        mysqli_query($this->con, $qr);
+        $result = true;
         return $result;
     }
 

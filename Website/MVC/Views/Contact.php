@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="./Public/js/contact/css/style.css">
-    <base href="localhost">
+    <base href="http://localhost/website/">
 	</head>
 	<body>
 	<section class="ftco-section img bg-hero" style="background-image: url(./Public/images/bg/bg_1.jpg);">

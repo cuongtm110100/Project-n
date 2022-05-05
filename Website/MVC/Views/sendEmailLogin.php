@@ -10,10 +10,10 @@ include "./PHPMailer/src/SMTP.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+    $name=$data["username"];
     $email=$data["email"];//$_POST["email"];
-    $token=$data["token"];//$_POST["token"];
-    $username=$data["username"];
-    $name=$data["firstname"];
+   
+        
     $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
     try {
         //Server settings
@@ -40,7 +40,7 @@ use PHPMailer\PHPMailer\Exception;
     
         //Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = "Verify your email address";//$title;
+        $mail->Subject = "Authentication User Login Account";//$title;
         $mail->Body    ='<div style="background-color:#e4e4e4;font-family:Verdana,sans-serif;margin:0;padding:0;width:100%" bgcolor="#e4e4e4" width="100%">
   <table id="m_3359635443091308996backgroundTable" cellpadding="10" cellspacing="0" border="0" style="background-color:#e4e4e4;line-height:100%;margin:0;padding:0;table-layout:fixed;width:100%" bgcolor="#e4e4e4" width="100%">
       <tbody>
@@ -55,7 +55,8 @@ use PHPMailer\PHPMailer\Exception;
                   <td>
                     <p style="color:black;font-family:Verdana,sans-serif;font-size:12px;line-height:20px;text-align:left;margin:1em 0" align="left"> Hi '.$name.',</p>
                     <p style="color:black;font-family:Verdana,sans-serif;font-size:12px;line-height:20px;text-align:left;margin:1em 0" align="left">
-                      Welcome to TMC! To get full access to your account, please verify your email address by clicking the button below.
+                      Welcome to TMC! 
+                        
                     </p>
                   </td>
 
@@ -71,8 +72,14 @@ use PHPMailer\PHPMailer\Exception;
                     <table cellspacing="0" cellpadding="0" align="center">
                       <tbody>
                         <tr>
-                          <td style="color:#fff;font-family:verdana,sans-serif;font-size:20px;background-color:#288cf4;display:block;height:35px;text-align:center;text-transform:uppercase;width:150px" bgcolor="#288cf4" height="35" align="center" width="150">
-                            <a href="localhost/website/Verification?token='.$token.'&un='.$username.'" style="color:#fff;display:inline-block;font-family:verdana,sans-serif;font-size:14px;line-height:35px;text-decoration:none;width:100%" width="100%" target="_blank"><span>Verify Email</span></a>
+                          <td>
+                            <p style="color:black;font-family:Verdana,sans-serif;font-size:12px;line-height:20px;text-align:left;margin:1em 0" align="left">
+                            Thank you for entering our website. 
+                            If this is not you, lock your account for security.
+                            <td style="color:#fff;font-family:verdana,sans-serif;font-size:20px;background-color:#288cf4;display:block;height:35px;text-align:center;text-transform:uppercase;width:150px" bgcolor="#288cf4" height="35" align="center" width="150">
+                            <a href="localhost/website/BlockUser?email='.$email.'&username='.$name.'" style="color:#fff;display:inline-block;font-family:verdana,sans-serif;font-size:14px;line-height:35px;text-decoration:none;width:100%" width="100%" target="_blank"><span>Verify Email</span></a>
+                          </td>
+                            </p>
                           </td>
                         </tr>
                       </tbody>
@@ -104,13 +111,7 @@ use PHPMailer\PHPMailer\Exception;
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         if($mail->send()){
-            echo '<script language="javascript">';
-            echo 'alert("Đã send email xác nhận tài khoản tời email: '.$email.'")';
-            echo '</script>';
-
-            echo '<script language="Javascript">';
-            echo 'window.location="localhostHome"';
-            echo '</script>';
+            header("location:http://localhost/website/Admin");
         }
     } catch (Exception $e) {
         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
