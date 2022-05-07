@@ -1,4 +1,4 @@
-<base href="localhost">
+<base href="localhost/website/">
 <?php
 
 include "./PHPMailer/src/PHPMailer.php";
@@ -109,7 +109,7 @@ use PHPMailer\PHPMailer\Exception;
             echo '</script>';
 
             echo '<script language="Javascript">';
-            echo 'window.location="localhostHome"';
+            echo 'window.location="localhost/website/Home"';
             echo '</script>';
         }
     } catch (Exception $e) {

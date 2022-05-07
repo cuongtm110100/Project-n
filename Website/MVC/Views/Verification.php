@@ -25,7 +25,7 @@
             echo '</script>';
 
             echo '<script language="Javascript">';
-            echo 'window.location="Home"';
+            echo 'window.location="localhost/website/Home"';
             echo '</script>';
             
         }

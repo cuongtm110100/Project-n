@@ -3,10 +3,10 @@
 class UserModel extends DB{
     public function CheckUserName($un)
     {   
-        // if (!preg_match ("/^[a-zA-Z]+[0-9]*$/", $un) ){ //Bảo mật về SQL Injection về username
-        //     $kq = false;   
-        //     return $kq; 
-        // }else{
+        if (!preg_match ("/^[a-zA-Z]+[0-9]*$/", $un) ){ //Bảo mật về SQL Injection về username
+            $kq = false;   
+            return $kq; 
+        }else{
             $qr = "SELECT id FROM user WHERE username='$un'"; 
             $rows = mysqli_query($this->con,$qr);
             $kq = false;           
@@ -16,7 +16,7 @@ class UserModel extends DB{
             }
             return $kq;
 
-        // }
+        }
         
     }
 
