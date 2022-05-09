@@ -30,6 +30,7 @@
         <base href="http://localhost/website/">
         <link href="./Public/css/styleRegister.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body class="bgLogin">
         <div id="layoutAuthentication">
@@ -76,6 +77,10 @@
                                                 <a class="small" href="password.html">Forgot Password?</a>
                                                 <button class="btn btn-primary" name="btnLogin">Login</button>
                                             </div>
+                                            <div class="g-recaptcha" data-sitekey="6LeWHtUfAAAAAM_NN3vSlDWKV4gPIHuc2j-mz4jF"></div>
+                                            
+</script>
+      
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">

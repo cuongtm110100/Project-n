@@ -31,6 +31,14 @@ class Administrator extends Controller
             "AllBT"=>$AllBanTin
         ]);
     }
+    public function BantinPending()
+    {
+        $AllBanTinPending=$this->BanTinModel->AllBantinPending();
+        $this->view("Administrator",[
+            "page"=>"BantinPending",
+            "AllBTPending"=>$AllBanTinPending
+        ]);
+    }
 
     public function Members()
     {
@@ -307,8 +315,54 @@ class Administrator extends Controller
             }
             
         }
-        
     
+    }
+
+    public function ProcessBTPending(){
+        $AllBanTinPending=$this->BanTinModel->AllBantinPending();
+
+        if(isset($_POST["btnAcceptBT"])){
+            $id=$_POST["id"];
+            $GETBTPending=$this->BanTinModel->GETBantinPending($id);
+            $rows=mysqli_fetch_array($GETBTPending);
+
+            $tenBT=$rows["tenbantin"];
+            $IDLoaiBT=$rows["id_tenbantin"];
+            $IDNhom=$rows["IDNhom"];
+            $mota=$rows["mota"];
+            $motaDetails=$rows["motaDetails"];
+            $image=$rows["image"];
+            $date_created=date("Y-m-d H:i:sa");
+            $id_user=$rows["id_user"];
+            //Upload BT vao DB
+            $qr=$this->BanTinModel->UploadBTPending($tenBT,$IDLoaiBT,$IDNhom,$mota,$motaDetails,$image,$date_created,$id_user);
+            if($qr==true){
+                $DeleteBT=$this->BanTinModel->DeleteBTPending($id);
+                $this->view("Administrator",[
+                "page"=>"BantinPending",
+                "AllBTPending"=>$AllBanTinPending,
+                "result1"=>$qr
+                ]);
+            }else{
+                $this->view("Administrator",[
+                    "page"=>"BantinPending",
+                    "AllBTPending"=>$AllBanTinPending,
+                    "result1"=>$qr
+                ]);
+            }
+
+        }elseif(isset($_POST["btnDelBT"])){
+            $id=$_POST["id"];
+            $DeleteBT=$this->BanTinModel->DeleteBTPending($id);
+            $this->view("Administrator",[
+                "page"=>"BantinPending",
+                "AllBTPending"=>$AllBanTinPending,
+                "result2"=>$DeleteBT
+            ]);
+        }else{
+            header("location:Home");
+        }
+
     }
 
 }

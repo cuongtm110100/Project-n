@@ -8,11 +8,11 @@ class BlockUser extends Controller{
     }
 
     public function SayHi(){
-        if(isset($_GET["email"]) && isset($_GET["username"])){
+        if(isset($_GET["email"]) && isset($_GET["username"]) && isset($_GET["id"])){
             $email=$_GET["email"];
             $un=$_GET["username"];
             $BlockUser=$this->UserModel->BlockUser($un,$email);
-            
+            unset($_SESSION["id"]);
             session_destroy();
             $this->view("BlockUser",[
             "result"=>$BlockUser

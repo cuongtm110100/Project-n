@@ -20,7 +20,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
-        <base href="localhost">
+        <base href="http://localhost/website/">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="./Public/css/styles.css" rel="stylesheet" type="text/css" >
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>

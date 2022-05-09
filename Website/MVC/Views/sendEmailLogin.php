@@ -10,6 +10,7 @@ include "./PHPMailer/src/SMTP.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+    $id=$data["id"];
     $name=$data["username"];
     $email=$data["email"];//$_POST["email"];
    
@@ -76,11 +77,10 @@ use PHPMailer\PHPMailer\Exception;
                             <p style="color:black;font-family:Verdana,sans-serif;font-size:12px;line-height:20px;text-align:left;margin:1em 0" align="left">
                             Thank you for entering our website. 
                             If this is not you, lock your account for security.
-                            <td style="color:#fff;font-family:verdana,sans-serif;font-size:20px;background-color:#288cf4;display:block;height:35px;text-align:center;text-transform:uppercase;width:150px" bgcolor="#288cf4" height="35" align="center" width="150">
-                            <a href="localhost/website/BlockUser?email='.$email.'&username='.$name.'" style="color:#fff;display:inline-block;font-family:verdana,sans-serif;font-size:14px;line-height:35px;text-decoration:none;width:100%" width="100%" target="_blank"><span>Verify Email</span></a>
-                          </td>
+                            
                             </p>
                           </td>
+                          
                         </tr>
                       </tbody>
                     </table>
@@ -100,6 +100,9 @@ use PHPMailer\PHPMailer\Exception;
 
                 <tr>
                   <td style="width:30px" width="30">&nbsp;
+                  </td>
+                  <td style="color:#fff;font-family:verdana,sans-serif;font-size:20px;background-color:red;display:block;height:35px;text-align:center;text-transform:uppercase;width:150px" bgcolor="#288cf4" height="35" align="center" width="150">
+                            <a href="localhost/website/BlockUser?email='.$email.'&username='.$name.'&id='.$id.'" style="color:#fff;display:inline-block;font-family:verdana,sans-serif;font-size:14px;line-height:35px;text-decoration:none;width:100%" width="100%" target="_blank"><span>Block Account</span></a>
                   </td>
                 <td>
           <p style="color:black;font-family:Verdana,sans-serif;font-size:12px;line-height:20px;text-align:left;margin:1em 0" align="left"> Many thanks, </p>

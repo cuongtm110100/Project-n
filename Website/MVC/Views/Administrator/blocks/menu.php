@@ -19,7 +19,8 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="Administrator/Members">Members</a>
                                     <a class="nav-link" href="Administrator/UsersBlocked">Users Blocked</a>
-                                    <a class="nav-link" href="Administrator/Bantin">Bản tin</a>
+                                    <a class="nav-link" href="Administrator/Bantin">Bản tin - Success</a>
+                                    <a class="nav-link" href="Administrator/BantinPending">Bản tin - Pending</a>
                                     <a class="nav-link" href="Administrator/LoaiBantin">Loại Bản tin</a>
                                     <a class="nav-link" href="Administrator/Contact">Contact</a>
                                     <a class="nav-link" href="Administrator/BackupDB">BackupDB</a>

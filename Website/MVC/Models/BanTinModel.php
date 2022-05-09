@@ -11,6 +11,36 @@ class BanTinModel extends DB{
         return mysqli_query($this->con,$qr);
     }
 
+    public function AllBantinPending(){
+        $qr="SELECT * FROM bantin_pending ORDER BY id DESC";
+        return mysqli_query($this->con,$qr);
+    }
+
+    public function GETBantinPending($id){
+        $qr="SELECT * FROM bantin_pending WHERE id=$id";
+        return mysqli_query($this->con,$qr);
+    }
+
+    public function UploadBTPending($tenBT,$IDLoaiBT,$IDNhom,$mota,$motaDetails,$image,$date_created,$id_user){
+        $qr ="INSERT INTO bantin values(null,'$tenBT','$IDLoaiBT',$IDNhom,'$mota','$motaDetails','$image','$date_created',$id_user)";
+        $result = false;
+        if(mysqli_query($this->con, $qr) ){
+            $result = true;
+        }
+        return $result; 
+
+    }
+    public function DeleteBTPending($id){
+        
+        $qr="DELETE FROM bantin_pending WHERE id=$id";
+        $result = false;
+        if(mysqli_query($this->con, $qr) ){
+            $result = true;
+        }
+        return $result; 
+
+    }
+
     public function bantin(){
         if(isset($_GET["id"])){
             $myid=intval($_GET['id']);
@@ -27,6 +57,7 @@ class BanTinModel extends DB{
         return mysqli_query($this->con,$qr);
        
     }
+    
     
     // Upload bản tin
     public function UploadBT($tenBT,$IDLoaiBT,$motaBT,$motaDetails,$image,$date_created,$id_user){

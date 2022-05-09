@@ -98,12 +98,15 @@ class Login extends Controller{
                         $_SESSION["username"]=$username;
                         setcookie($id,"",time() + 60);
                         $ShowUser=$this->UserModel->ShowUser($id);
-                        
-                        $this->view("Admin/Home",[
+                        $SelectEmail=$this->UserModel->SelectEmail($id);
+                        $this->view("sendEmailLogin",[
                             "page"=>"Home",
                             "LoaiBT"=>$LoaiBT,
                             "Permission"=>$Permission,
-                            "User"=>$ShowUser
+                            "User"=>$ShowUser,
+                            "email"=>$SelectEmail,
+                            "username"=>$username,
+                            "id"=>$id
                         ]);
                         
                     }
