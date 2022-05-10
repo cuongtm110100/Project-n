@@ -10,7 +10,7 @@ class Admin extends Controller{
     }
     public function SayHi(){
         $LoaiBT=$this->BanTinModel->ShowLoaiBT();
-        if(isset($_SESSION["id"])){
+        if(isset($_SESSION['id'])){
             $un=$_SESSION["username"];
             $id=$_SESSION["id"];
             $Permission=$this->UserModel->CheckPermissionUser($un);
@@ -240,6 +240,19 @@ class Admin extends Controller{
             $avatar=$newfilename;
             $un=$_SESSION["username"];
             $id=$_SESSION["id"];
+            $checkBlockUser=$this->UserModel->CheckBlock($un);
+            if($checkBlockUser==true){
+                unset($_SESSION['id']);
+                session_destroy();
+                echo '<script language="javascript">';
+                echo 'alert("Tài khoản của bạn đã bị KHÓA do 1 lí do nào đo. Hãy Contact Administrator để được hỗ trợ")';
+                echo '</script>';
+                 // Refresh lại page Admin
+                 echo '<script language="Javascript">';
+                 echo 'window.location="Home"';
+                 echo '</script>';
+                return false;
+            }
             //Upload BT vao DB
             $qr=$this->UserModel->ChangeAvatar($id,$avatar);
 
