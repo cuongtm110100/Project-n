@@ -33,7 +33,11 @@ class Admin extends Controller{
         
     }
     
-
+    public function Logout($_SESSION["id"]){
+        unset($_SESSION["id"]);
+        session_destroy();
+        header("location:http://localhost/website/home");
+    }
     
 
     public function XuLyUploads(){
@@ -124,9 +128,24 @@ class Admin extends Controller{
             //Upload BT vao DB
             $un=$_SESSION["username"];
             $id_user=$_SESSION["id"];
+            
+            $checkBlockUser=$this->UserModel->CheckBlock($un);
+            if($checkBlockUser==true){
+                unset($_SESSION["id"]);
+                session_destroy();
+                echo '<script language="javascript">';
+                echo 'alert("Tài khoản của bạn đã bị KHÓA do 1 lí do nào đo. Hãy Contact Administrator để được hỗ trợ")';
+                echo '</script>';
+                 // Refresh lại page Admin
+                 echo '<script language="Javascript">';
+                 echo 'window.location="Home"';
+                 echo '</script>';
+                return false;
+            }
             $qr=$this->BanTinModel->UploadBT($tenBT,$IDLoaiBT,$mota,$motaDetails,$image,$date_created,$id_user);
             $LoaiBT=$this->BanTinModel->ShowLoaiBT();
             
+
             $Permission=$this->UserModel->CheckPermissionUser($un);
             $ShowUser=$this->UserModel->ShowUser($id_user);
             $this->view("Admin/Home",[
@@ -252,11 +271,7 @@ class Admin extends Controller{
     // }
     
 
-    public function Logout(){
-        unset($_SESSION["id"]);
-        session_destroy();
-        header("location:http://localhost/website/home");
-    }
+    
 
 
 }

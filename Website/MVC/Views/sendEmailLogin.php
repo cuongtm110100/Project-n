@@ -22,13 +22,13 @@ use PHPMailer\PHPMailer\Exception;
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'mail.cuongtm-it.tech';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'info@cuongtm-it.tech';                 // SMTP username
+        $mail->Username = 'support@cuongtm-it.tech';                 // SMTP username
         $mail->Password = 'Cuong@110100';                           // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
     
         //Recipients
-        $mail->setFrom('info@cuongtm-it.tech', 'TMC');
+        $mail->setFrom('support@cuongtm-it.tech', 'Support TEAM TMC');
         $mail->addAddress($email);               // Name is optional
         // $mail->addCC('cuongtm.it@gmail.com');
         //$mail->addReplyTo('tmc110100@gmail.com', 'Information');

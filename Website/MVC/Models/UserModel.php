@@ -170,7 +170,7 @@ class UserModel extends DB{
         $qr = "SELECT * FROM user where  username='$un' and blocked=1 ";
         $row= mysqli_query($this->con, $qr);
         $result = false;
-        if(mysqli_num_rows($row) == 1){
+        if(mysqli_num_rows($row) == 1){  //Tài khoản đã bị block
             $result = true;
         }
         return $result;
