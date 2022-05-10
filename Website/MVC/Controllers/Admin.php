@@ -33,7 +33,7 @@ class Admin extends Controller{
         
     }
     
-    public function Logout($_SESSION["id"]){
+    public function Logout(){
         unset($_SESSION["id"]);
         session_destroy();
         header("location:http://localhost/website/home");

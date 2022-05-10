@@ -99,7 +99,7 @@ class Home extends Controller{
 
                 // Refresh lại page Home
                 echo '<script language="Javascript">';
-                echo 'window.location="localhostHome"';
+                echo 'window.location="Home"';
                 echo '</script>';
             } else {
                 $this->view("Home",[
